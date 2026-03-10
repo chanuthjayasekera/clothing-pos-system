@@ -1,0 +1,98 @@
+/* Custom Scrollbar for better aesthetics */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* View Transitions */
+.view-section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+.view-section.active {
+    display: flex;
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* Product Card Hover Effects */
+.product-card {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.15), 0 8px 10px -6px rgba(79, 70, 229, 0.1);
+    border-color: #c7d2fe;
+}
+
+/* Active Nav Border Effect */
+.nav-btn {
+    position: relative;
+    overflow: hidden;
+}
+.nav-btn.active {
+    background-color: #eef2ff;
+    color: #4f46e5;
+    font-weight: 600;
+}
+.nav-btn.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 60%;
+    width: 4px;
+    background-color: #4f46e5;
+    border-radius: 0 4px 4px 0;
+}
+
+/* Modal Transitions */
+#modal-product.open,
+#modal-supplier.open,
+#modal-payment.open,
+#modal-discount.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+#modal-product.open > div,
+#modal-supplier.open > div,
+#modal-payment.open > div,
+#modal-discount.open > div {
+    transform: scale(1);
+}
+
+/* Table Row Hover */
+tbody tr {
+    transition: all 0.2s;
+}
+tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+/* Payment Method Button */
+.pay-method-btn.active {
+    border-color: #4f46e5;
+    background-color: #eef2ff;
+    color: #4f46e5;
+}
